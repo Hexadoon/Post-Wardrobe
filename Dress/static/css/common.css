@@ -1,0 +1,75 @@
+.c-bg-yellow {
+  background-color: #FEFFE9;
+}
+
+.c-bg-dark {
+  background-color: #2B1F19;
+}
+
+.c-bg-light-blue {
+  background-color: #C3DBCE;
+}
+
+.c-bg-brown {
+  background-color: #997D6E;
+}
+
+.c-bg-pink {
+  background-color: #DBB39E;
+}
+
+.c-bg-dark-blue {
+  background-color: #6C7F7F;
+}
+
+.c-font-green {
+  color: #E3EAB9;
+}
+
+.c-font-dark {
+  color: #2B1F19;
+}
+
+.c-font-light-blue {
+  color: #C3DBCE;
+}
+
+.c-font-brown {
+  color: #997D6E;
+}
+
+.c-font-pink {
+  color: #DBB39E;
+}
+
+.c-font-dark-blue {
+  color: #6C7F7F;
+}
+
+.dark-link {
+  color: #473329;
+  text-decoration: none;
+}
+
+.dark-link:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.black-link {
+  color: #555;
+  text-decoration: none;
+}
+
+.black-link:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+.zoom {
+  transition: transform .2s;
+}
+
+.zoom:hover {
+  transform: scale(1.05);
+}

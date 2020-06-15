@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../static/css/common.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css')}}">
+
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/362c3782b4.js" crossorigin="anonymous"></script>
+
+  <title>Browse | Post Wardrobe</title>
+</head>
+
+<body class="c-bg-yellow d-flex flex-column h-100">
+  <header>
+    <nav class="navbar c-bg-light-blue d-flex align-items-center fixed-top">
+      <img src="../static/imgs/postage-stamp.svg" width="40px" class="mr-auto">
+      <a class="far fa-envelope dark-link mx-3" href="/messages" style="font-size: 40px;"></a>
+      <a class="fas fa-user-plus dark-link mx-3" style="font-size: 30px;" href="/signup"></a>
+      <a class="fas fa-sign-in-alt dark-link mx-3" style="font-size: 30px" href="/signin"></a>
+    </nav>
+  </header>
+
+  <!-- main content -->
+  <main role="main" class="flex-shrink-0" style="padding-top: 80px">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3">
+          <nav id="filternav" class="navbar navbar-light navbar-expand-md c-bg-pink mb-4">
+            <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#filters" aria-controls="filters" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse c-bg-pink" id="filters" style="">
+              <ul class="mx-auto" style="list-style-type: none; padding-left: 0">
+
+                <!-- HERE ARE THE FILTERS -->
+                <li class="nav-item active">
+                  <div class="form-group">
+                    <label for="filter1">Lorem ipsum dolor sit:</label>
+                    <select class="form-control" id="filter1">
+                      <option>option 1</option>
+                      <option>option 2</option>
+                    </select>
+                  </div>
+                </li>
+
+                <li class="nav-item active">
+                  <div class="form-group">
+                    <label for="filter1">Lorem ipsum dolor sit:</label>
+                    <select class="form-control" id="filter1">
+                      <option>option 1</option>
+                      <option>option 2</option>
+                    </select>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="col-md-9">
+          <div class="container-fluid">
+            <div class="row">
+
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card zoom mx-5 mx-md-0">
+                  <img class="card-img-top" src="https://anninc.scene7.com/is/image/LO/530079_7077?$pdp2x$" alt="dress" style="height: 300px; object-fit: cover">
+                  <div class="card-body">
+                    <a class="h5 card-title stretched-link black-link" href="/item/itemid"><span class="float-left">Product name</span><span class="float-right">$25</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card zoom mx-5 mx-md-0">
+                  <img class="card-img-top" src="https://img.simplydresses.com/_img/SDPRODUCTS/2220018/1000/ivory-dress-CH-3075-d.jpg" alt="dress" style="height: 300px; object-fit: cover">
+                  <div class="card-body">
+                    <a class="h5 card-title stretched-link black-link" href="/item/itemid"><span class="float-left">Product name</span><span class="float-right">$25</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card zoom mx-5 mx-md-0">
+                  <img class="card-img-top" src="https://media.missguided.com/i/missguided/DD921696_01" alt="dress" style="height: 300px; object-fit: cover">
+                  <div class="card-body">
+                    <a class="h5 card-title stretched-link black-link" href="/item/itemid"><span class="float-left">Product name</span><span class="float-right">$25</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card zoom mx-5 mx-md-0">
+                  <img class="card-img-top" src="https://media.missguided.com/s/missguided/DD922714_set/1/black-organza-skater-shirt-dress" alt="dress" style="height: 300px; object-fit: cover">
+                  <div class="card-body">
+                    <a class="h5 card-title stretched-link black-link" href="/item/itemid"><span class="float-left">Product name</span><span class="float-right">$25</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card zoom mx-5 mx-md-0">
+                  <img class="card-img-top" src="https://www.chicwish.com/media/catalog/product/cache/1/image/360x524/9df78eab33525d08d6e5fb8d27136e95/9/0/90102b.65.jpg" alt="dress" style="height: 300px; object-fit: cover">
+                  <div class="card-body">
+                    <a class="h5 card-title stretched-link black-link" href="/item/itemid"><span class="float-left">Product name</span><span class="float-right">$25</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card zoom mx-5 mx-md-0">
+                  <img class="card-img-top" src="https://images.www.fendi.com/images/h00/hc0/9046410821662/FZD832ABWQF1AKS_01_large-grey" alt="dress" style="height: 300px; object-fit: cover">
+                  <div class="card-body">
+                    <a class="h5 card-title stretched-link black-link" href="/item/itemid"><span class="float-left">Product name</span><span class="float-right">$25</span></a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer mt-auto py-3">
+    <div class="container-fluid">
+      <small class="text-muted">Postage Stamp icon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></small>
+    </div>
+  </footer>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body></html>
