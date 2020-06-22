@@ -31,12 +31,12 @@
             <div class="modal-body c-bg-yellow c-font-dark">
               <form id="login" method="post" action="/login">
                 <div class="form-group">
-                  <label for="email">Email</label>
-                  <input id="email" type="email" class="form-control" name="email" placeholder="johndoe@website.com" required>
+                  <label for="loginemail">Email</label>
+                  <input id="loginemail" type="email" class="form-control" placeholder="johndoe@website.com" name="email" required>
                 </div>
                 <div class="form-group">
-                  <label for="password">Password</label>
-                  <input id="password" type="password" class="form-control" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" name="password" required> </div>
+                  <label for="loginpassword">Password</label>
+                  <input id="loginpassword" type="password" class="form-control" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" name="password" required> </div>
               </form>
             </div>
             <div class="modal-footer c-bg-yellow">
@@ -46,40 +46,29 @@
         </div>
       </div>
     </div>
-    <div class=" mt-5 p-2" style="background-image: url(../static/imgs/stripes.png); background-size: 200px;">
-      <div class="container-fluid c-bg-pink">
-        <div class="row">
-          <div class="col-sm-6 order-last order-sm-first">
-            <div class="p-3">
-              Lorem ipsum,
-              <div class="pl-2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus faucibus, turpis et sodales elementum, ex eros pellentesque lacus, et venenatis neque neque ac orci. Suspendisse orci enim, viverra non tempor ac, cursus vel nisl. Aenean vel laoreet purus. Proin tempus volutpat fringilla. Quisque non lorem at ex euismod imperdiet ut eu ex. Mauris a mi pellentesque nisl suscipit porttitor. Vestibulum fringilla lacinia nibh nec sollicitudin. Vivamus sed nibh consequat, egestas urna id, vestibulum felis. Integer eu lacus ex.
+    <main role="main">
+      <div class="container mt-3">
+        <div class="card mx-auto" style="max-width: 500px">
+          <h5 class="card-header c-bg-dark c-font-pink">
+            Sign Up
+          </h5>
+          <div class="card-body c-bg-yellow">
+            <form id="signup" method="post" action="/signup">
+              <div class="form-group">
+                <label for="signupemail">Email</label>
+                <input id="signupemail" type="email" class="form-control" placeholder="johndoe@website.com" name="email" required>
               </div>
-            </div>
+              <div class="form-group">
+                <label for="signuppassword">Password</label>
+                <input id="signuppassword" type="password" class="form-control" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" name="password" required> </div>
+            </form>
           </div>
-          <div class="col-sm-6 order-first order-sm-last c-border">
-            <div class="container mt-2 mb-5">
-              <div class="row" style="height: 150px">
-                images
-              </div>
-              <div class="row">
-                <div class="container-fluid">
-                  <div class="row" style="text-decoration: underline">
-                    <div class="mx-auto">Lorem ipsum dolor sit</div>
-                  </div>
-                  <div class="row" style="text-decoration: underline">
-                    <div class="mx-auto">Lorem ipsum dolor sit</div>
-                  </div>
-                  <div class="row" style="text-decoration: underline">
-                    <div class="mx-auto">Lorem ipsum dolor sit</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <footer class="card-footer c-bg-yellow">
+            <input type="submit" form="signup" class="btn btn-custom float-right" value="Sign Up">
+          </footer>
         </div>
       </div>
-    </div>
+    </main>
   </div> <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

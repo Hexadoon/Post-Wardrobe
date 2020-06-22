@@ -73,3 +73,13 @@
 .zoom:hover {
   transform: scale(1.05);
 }
+
+.btn-custom {
+  background-color: #2B1F19;
+  color: #DBB39E;
+}
+
+.c-border {
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+}

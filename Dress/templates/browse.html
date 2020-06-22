@@ -21,7 +21,7 @@
 <body class="c-bg-yellow d-flex flex-column h-100">
   <header>
     <nav class="navbar c-bg-light-blue d-flex align-items-center fixed-top">
-      <img src="../static/imgs/postage-stamp.svg" width="40px" class="mr-auto">
+      <img src="../static/imgs/logo_small.png" width="70px" class="mr-auto">
       <a class="far fa-envelope dark-link mx-3" href="/messages" style="font-size: 40px;"></a>
       <a class="fas fa-user-plus dark-link mx-3" style="font-size: 30px;" href="/signup"></a>
       <a class="fas fa-sign-in-alt dark-link mx-3" style="font-size: 30px" href="/signin"></a>
@@ -39,37 +39,40 @@
             </button>
 
             <div class="collapse navbar-collapse c-bg-pink" id="filters" style="">
-              <ul class="mx-auto" style="list-style-type: none; padding-left: 0">
+              <form id="filterform">
+                <ul class="mx-auto" style="list-style-type: none; padding-left: 0">
 
-                <!-- HERE ARE THE FILTERS -->
-                <li class="nav-item active">
-                  <div class="form-group">
-                    <label for="filter1">Lorem ipsum dolor sit:</label>
-                    <select class="form-control" id="filter1">
-                      <option>option 1</option>
-                      <option>option 2</option>
-                    </select>
-                  </div>
-                </li>
+                  <!-- HERE ARE THE FILTERS -->
+                  <li class="nav-item active">
+                    <div class="form-group">
+                      <label for="filter1">Lorem ipsum dolor sit:</label>
+                      <select class="form-control" id="filter1" name="filter1" onchange="filter_change();">
+                        <option>option 1</option>
+                        <option>option 2</option>
+                      </select>
+                    </div>
+                  </li>
 
-                <li class="nav-item active">
-                  <div class="form-group">
-                    <label for="filter1">Lorem ipsum dolor sit:</label>
-                    <select class="form-control" id="filter1">
-                      <option>option 1</option>
-                      <option>option 2</option>
-                    </select>
-                  </div>
-                </li>
+                  <li class="nav-item active">
+                    <div class="form-group">
+                      <label for="filter1">Lorem ipsum dolor sit:</label>
+                      <select class="form-control" id="filter1" name="filter2" onchange="filter_change();">
+                        <option>option 1</option>
+                        <option>option 2</option>
+                      </select>
+                    </div>
+                  </li>
 
-              </ul>
+                </ul>
+              </form>
             </div>
           </nav>
         </div>
         <div class="col-md-9">
           <div class="container-fluid">
-            <div class="row">
+            <div class="row" id="items">
 
+              <!--
               <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card zoom mx-5 mx-md-0">
                   <img class="card-img-top" src="https://anninc.scene7.com/is/image/LO/530079_7077?$pdp2x$" alt="dress" style="height: 300px; object-fit: cover">
@@ -123,7 +126,11 @@
                   </div>
                 </div>
               </div>
+              -->
 
+            </div>
+            <div class="row">
+              <button type="button" id="load_more" class="btn btn-custom mx-auto" onclick="load_many();">Load More</button>
             </div>
           </div>
         </div>
@@ -142,4 +149,5 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script src="../static/js/browse.js"></script>
 </body></html>
