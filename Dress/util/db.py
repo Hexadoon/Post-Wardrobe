@@ -7,8 +7,8 @@ import sqlite3
 import datetime
 import time
 
-# DB_FILE = '/var/www/Dress/Dress/data/hbr.db'
-DB_FILE = 'data/dress.db'
+DB_FILE = '/var/www/Dress/Dress/data/dress.db'
+# DB_FILE = 'data/dress.db'
 
 
 # TODO: Make the img_src a directory so you can store multiple images
@@ -305,4 +305,4 @@ def test():
 
 if __name__ == '__main__':
     create_db()
-    test()
+    # test()
