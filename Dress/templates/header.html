@@ -1,0 +1,50 @@
+<header>
+  <nav class="navbar c-bg-light-blue d-flex align-items-center justify-content-end fixed-top">
+    <a href="/redir_main" class="mr-auto">
+      <img src="../static/imgs/logo_small.png" width="70px">
+    </a>
+    {% if session['username'] %}
+    <a class="far fa-envelope dark-link mx-3" href="/messages" style="font-size: 40px;"></a>
+    <a class="fas fa-sign-out-alt dark-link mx-3" style="font-size: 40px;" href="/logout"></a>
+    {% else %}
+    <a class="fas fa-user-plus dark-link mx-3" style="font-size: 40px;" href="/signup_page"></a>
+
+    <div class="d-flex flex-row-reverse">
+      <a class="fas fa-sign-in-alt dark-link mx-3" data-toggle="modal" data-target="#loginModal" href="#login" style="font-size: 40px;"></a>
+      <div class="modal fade" id="loginModal" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header c-bg-dark">
+              <h5 class="modal-title c-font-pink" id="loginModalLabel">Log In</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" class="c-font-pink">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body c-bg-yellow c-font-dark">
+              <form id="login" method="post" action="/login">
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input id="username" type="text" class="form-control" name="username" placeholder="JohnDoe" required>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input id="password" type="password" class="form-control" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" name="password" required> </div>
+              </form>
+            </div>
+            <div class="modal-footer c-bg-yellow">
+              <input type="submit" form="login" class="btn btn-custom" value="Log In">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    {% endif %}
+
+    <!--
+    <a class="fas fa-user-plus dark-link mx-3" style="font-size: 30px;" href="/signup"></a>
+    <a class="fas fa-sign-in-alt dark-link mx-3" style="font-size: 30px" href="/signin"></a>
+-->
+  </nav>
+</header>

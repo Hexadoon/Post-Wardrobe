@@ -7,11 +7,18 @@ if (url.charAt(url.length - 1) == '/') {
 const name = url.substring(url.lastIndexOf('/') + 1, url.length);
 
 var scroll_down = function () {
-  $("#message_box").scrollTop($("#message_box")[0].scrollHeight);
+  //  $("#message_box").scrollTop($("#message_box")[0].scrollHeight);
+  $('#msgs').scrollTop($('#msgs')[0].scrollHeight);
 }
 
 $(document).ready(function () {
   get_messages();
+  $("#msg").keypress(function (e) {
+    if (e.which == 13) {
+      $("#send").click();
+      e.preventDefault();
+    };
+  });
 });
 
 var get_messages = function () {

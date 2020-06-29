@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-100">
 
 <head>
   <!-- Required meta tags -->
@@ -12,64 +12,49 @@
   <link rel="stylesheet" href="../static/css/common.css">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css')}}">
 
+  <link rel="icon" href="{{ url_for('static', filename='imgs/logo.png') }}">
+
   <title>Post Wardrobe</title>
 </head>
 
-<body class="c-bg-yellow">
-  <div class="container mt-2" style="max-width: 800px;">
-    <div class="d-flex flex-row-reverse">
-      <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#loginModal">Log In</button>
-      <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header c-bg-dark">
-              <h5 class="modal-title c-font-pink" id="loginModalLabel">Log In</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true" class="c-font-pink">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body c-bg-yellow c-font-dark">
-              <form id="login" method="post" action="/login">
+<body class="c-bg-yellow d-flex flex-column h-100">
+  <main role="main" class="flex-shrink-0 mt-2 mr-2">
+    {% include 'login.html' %}
+    <div class="container mt-3" style="max-width: 800ps;">
+      <div class="d-flex justify-content-center">
+        <div class="flex-grow-1 p-2" style="max-width: 500px; background-image: url('../static/imgs/stripes.png'); background-size: 200px;">
+          <div class="card">
+            <h5 class="card-header c-bg-dark c-font-pink">
+              Sign Up
+            </h5>
+            <div class="card-body c-bg-yellow">
+              <form id="signup" method="post" action="/signup">
                 <div class="form-group">
-                  <label for="loginemail">Email</label>
-                  <input id="loginemail" type="email" class="form-control" placeholder="johndoe@website.com" name="email" required>
+                  <label for="username">Username</label>
+                  <input id="username" type="text" class="form-control" placeholder="JohnDoe" name="username" required>
                 </div>
                 <div class="form-group">
-                  <label for="loginpassword">Password</label>
-                  <input id="loginpassword" type="password" class="form-control" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" name="password" required> </div>
+                  <label for="signupemail">Email</label>
+                  <input id="signupemail" type="email" class="form-control" placeholder="johndoe@website.com" name="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="signuppassword">Password</label>
+                  <input id="signuppassword" type="password" class="form-control" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" name="password" required> </div>
               </form>
             </div>
-            <div class="modal-footer c-bg-yellow">
-              <input type="submit" form="login" class="btn btn-custom" value="Log In">
-            </div>
+            <footer class="card-footer c-bg-light-blue">
+              <input type="submit" form="signup" class="btn btn-custom float-right" value="Sign Up">
+            </footer>
           </div>
         </div>
       </div>
     </div>
-    <main role="main">
-      <div class="container mt-3">
-        <div class="card mx-auto" style="max-width: 500px">
-          <h5 class="card-header c-bg-dark c-font-pink">
-            Sign Up
-          </h5>
-          <div class="card-body c-bg-yellow">
-            <form id="signup" method="post" action="/signup">
-              <div class="form-group">
-                <label for="signupemail">Email</label>
-                <input id="signupemail" type="email" class="form-control" placeholder="johndoe@website.com" name="email" required>
-              </div>
-              <div class="form-group">
-                <label for="signuppassword">Password</label>
-                <input id="signuppassword" type="password" class="form-control" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" name="password" required> </div>
-            </form>
-          </div>
-          <footer class="card-footer c-bg-yellow">
-            <input type="submit" form="signup" class="btn btn-custom float-right" value="Sign Up">
-          </footer>
-        </div>
-      </div>
-    </main>
-  </div> <!-- Optional JavaScript -->
+  </main>
+
+  {% include 'footer.html' %}
+
+
+  <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

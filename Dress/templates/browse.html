@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="../static/css/common.css">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css')}}">
 
+  <link rel="icon" href="{{ url_for('static', filename='imgs/logo.png') }}">
+
   <!-- fontawesome -->
   <script src="https://kit.fontawesome.com/362c3782b4.js" crossorigin="anonymous"></script>
 
@@ -19,46 +21,134 @@
 </head>
 
 <body class="c-bg-yellow d-flex flex-column h-100">
-  <header>
-    <nav class="navbar c-bg-light-blue d-flex align-items-center fixed-top">
-      <img src="../static/imgs/logo_small.png" width="70px" class="mr-auto">
-      <a class="far fa-envelope dark-link mx-3" href="/messages" style="font-size: 40px;"></a>
-      <a class="fas fa-user-plus dark-link mx-3" style="font-size: 30px;" href="/signup"></a>
-      <a class="fas fa-sign-in-alt dark-link mx-3" style="font-size: 30px" href="/signin"></a>
-    </nav>
-  </header>
+  {% include 'header.html' %}
 
   <!-- main content -->
   <main role="main" class="flex-shrink-0" style="padding-top: 80px">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-3">
-          <nav id="filternav" class="navbar navbar-light navbar-expand-md c-bg-pink mb-4">
+        <div class="col-md-3 col-lg-2">
+          <nav id="filternav" class="navbar navbar-light navbar-expand-md c-bg-pink mb-4 f-bilo">
             <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#filters" aria-controls="filters" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse c-bg-pink" id="filters" style="">
-              <form id="filterform">
+              <form id="filterform" class="w-100">
                 <ul class="mx-auto" style="list-style-type: none; padding-left: 0">
 
                   <!-- HERE ARE THE FILTERS -->
                   <li class="nav-item active">
                     <div class="form-group">
-                      <label for="filter1">Lorem ipsum dolor sit:</label>
-                      <select class="form-control" id="filter1" name="filter1" onchange="filter_change();">
-                        <option>option 1</option>
-                        <option>option 2</option>
+                      <label for="size">Size</label>
+                      <select class="form-control" id="size" name="size" onchange="filter_change();">
+                        <option>Any</option>
+                        <option>XS</option>
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                        <option>XL</option>
                       </select>
                     </div>
                   </li>
 
                   <li class="nav-item active">
                     <div class="form-group">
-                      <label for="filter1">Lorem ipsum dolor sit:</label>
-                      <select class="form-control" id="filter1" name="filter2" onchange="filter_change();">
-                        <option>option 1</option>
-                        <option>option 2</option>
+                      <label for="material">Material</label>
+                      <select class="form-control" id="material" name="material" onchange="filter_change();">
+                        <option>Any</option>
+                        <option>Cotton</option>
+                        <option>Leather</option>
+                        <option>Nylon</option>
+                        <option>Polyester</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+                  </li>
+
+                  <li class="nav-item active">
+                    <div class="form-group">
+                      <label for="color">Color</label>
+                      <select class="form-control" id="color" name="color" onchange="filter_change();">
+                        <option>Any</option>
+                        <option>Black</option>
+                        <option>White</option>
+                        <option>Red</option>
+                        <option>Orange</option>
+                        <option>Yellow</option>
+                        <option>Green</option>
+                        <option>Blue</option>
+                        <option>Purple</option>
+                      </select>
+                    </div>
+                  </li>
+
+                  <li class="nav-item active">
+                    <div class="form-group">
+                      <label for="price">Approx. Price</label>
+                      <select class="form-control" id="price" name="price" onchange="filter_change();">
+                        <option>Any</option>
+                        <option value="20">&lt; $20</option>
+                        <option value="40">&lt; $40</option>
+                        <option value="60">&lt; $60</option>
+                        <option value="80">&lt; $80</option>
+                        <option value="100">&lt; $100</option>
+                        <option value="Any">$100+</option>
+                      </select>
+                    </div>
+                  </li>
+
+                  <li class="nav-item active">
+                    <div class="form-group">
+                      <label for="occassion">Occassion</label>
+                      <select class="form-control" id="occassion" name="occassion" onchange="filter_change();">
+                        <option>Any</option>
+                        <option>Prom</option>
+                        <option>Wedding</option>
+                        <option>Work</option>
+                        <option>Night</option>
+                        <option>Formal</option>
+                      </select>
+                    </div>
+                  </li>
+
+                  <li class="nav-item active">
+                    <div class="form-group">
+                      <label for="weather">Weather</label>
+                      <select class="form-control" id="weather" name="weather" onchange="filter_change();">
+                        <option>Any</option>
+                        <option>Year-round</option>
+                        <option>Warm</option>
+                        <option>Cold</option>
+                      </select>
+                    </div>
+                  </li>
+
+                  <!-- We'll do this later -->
+                  <!--
+                  <li class="nav-item active">
+                    <div class="form-group">
+                      <label for="rating">Seller Rating</label>
+                      <select class="form-control" id="rating" name="rating" onchange="filter_change();">
+                        <option>Any</option>
+                        <option>1 Star+</option>
+                        <option>2 Star+</option>
+                        <option>3 Star+</option>
+                        <option>4 Star+</option>
+                        <option>5 Star</option>
+                      </select>
+                    </div>
+                  </li>
+-->
+
+                  <li class="nav-item active">
+                    <div class="form-group">
+                      <label for="condition">Condition</label>
+                      <select class="form-control" id="condition" name="condition" onchange="filter_change();">
+                        <option>Any</option>
+                        <option>Like New</option>
+                        <option>Good</option>
+                        <option>Fair</option>
                       </select>
                     </div>
                   </li>
@@ -68,69 +158,19 @@
             </div>
           </nav>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 col-lg-10 f-avenir">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+          {% for category, message in messages %}
+          <div class="alert alert-{{ category }} text-center f-bilo" role="alert">{{ message }}</div>
+          {% endfor %}
+          {% endwith %}
           <div class="container-fluid">
             <div class="row" id="items">
 
-              <!--
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card zoom mx-5 mx-md-0">
-                  <img class="card-img-top" src="https://anninc.scene7.com/is/image/LO/530079_7077?$pdp2x$" alt="dress" style="height: 300px; object-fit: cover">
-                  <div class="card-body">
-                    <a class="h5 card-title stretched-link black-link" href="/item/itemid"><span class="float-left">Product name</span><span class="float-right">$25</span></a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card zoom mx-5 mx-md-0">
-                  <img class="card-img-top" src="https://img.simplydresses.com/_img/SDPRODUCTS/2220018/1000/ivory-dress-CH-3075-d.jpg" alt="dress" style="height: 300px; object-fit: cover">
-                  <div class="card-body">
-                    <a class="h5 card-title stretched-link black-link" href="/item/itemid"><span class="float-left">Product name</span><span class="float-right">$25</span></a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card zoom mx-5 mx-md-0">
-                  <img class="card-img-top" src="https://media.missguided.com/i/missguided/DD921696_01" alt="dress" style="height: 300px; object-fit: cover">
-                  <div class="card-body">
-                    <a class="h5 card-title stretched-link black-link" href="/item/itemid"><span class="float-left">Product name</span><span class="float-right">$25</span></a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card zoom mx-5 mx-md-0">
-                  <img class="card-img-top" src="https://media.missguided.com/s/missguided/DD922714_set/1/black-organza-skater-shirt-dress" alt="dress" style="height: 300px; object-fit: cover">
-                  <div class="card-body">
-                    <a class="h5 card-title stretched-link black-link" href="/item/itemid"><span class="float-left">Product name</span><span class="float-right">$25</span></a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card zoom mx-5 mx-md-0">
-                  <img class="card-img-top" src="https://www.chicwish.com/media/catalog/product/cache/1/image/360x524/9df78eab33525d08d6e5fb8d27136e95/9/0/90102b.65.jpg" alt="dress" style="height: 300px; object-fit: cover">
-                  <div class="card-body">
-                    <a class="h5 card-title stretched-link black-link" href="/item/itemid"><span class="float-left">Product name</span><span class="float-right">$25</span></a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card zoom mx-5 mx-md-0">
-                  <img class="card-img-top" src="https://images.www.fendi.com/images/h00/hc0/9046410821662/FZD832ABWQF1AKS_01_large-grey" alt="dress" style="height: 300px; object-fit: cover">
-                  <div class="card-body">
-                    <a class="h5 card-title stretched-link black-link" href="/item/itemid"><span class="float-left">Product name</span><span class="float-right">$25</span></a>
-                  </div>
-                </div>
-              </div>
-              -->
 
             </div>
             <div class="row">
-              <button type="button" id="load_more" class="btn btn-custom mx-auto" onclick="load_many();">Load More</button>
+              <button type="button" id="load_more" class="btn btn-custom mx-auto f-bilo" onclick="load_many();">Load More</button>
             </div>
           </div>
         </div>
@@ -138,11 +178,7 @@
     </div>
   </main>
 
-  <footer class="footer mt-auto py-3">
-    <div class="container-fluid">
-      <small class="text-muted">Postage Stamp icon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></small>
-    </div>
-  </footer>
+  {% include 'footer.html' %}
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

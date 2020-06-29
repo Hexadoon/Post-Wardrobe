@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-100">
 
 <head>
   <!-- Required meta tags -->
@@ -12,75 +12,85 @@
   <link rel="stylesheet" href="../static/css/common.css">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css')}}">
 
+  <link rel="icon" href="{{ url_for('static', filename='imgs/logo.png') }}">
+
   <title>Post Wardrobe</title>
 </head>
 
-<body class="c-bg-yellow">
-  <div class="container mt-2" style="max-width: 800px;">
-    <div class="d-flex flex-row-reverse">
-      <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#loginModal">Log In</button>
-      <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header c-bg-dark">
-              <h5 class="modal-title c-font-pink" id="loginModalLabel">Log In</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true" class="c-font-pink">&times;</span>
-              </button>
+<body class="c-bg-yellow d-flex flex-column h-100">
+  <main role="main" class="flex-shrink-0">
+    <div class="container mt-2" style="max-width: 800px;">
+      {% include 'login.html' %}
+      <div class=" mt-5 p-2" style="background-image: url(../static/imgs/stripes.png); background-size: 200px;">
+        <div class="container-fluid c-bg-pink d-md-block d-none">
+          <div class="row">
+            <div class="col-6 p-3">
+
             </div>
-            <div class="modal-body c-bg-yellow c-font-dark">
-              <form id="login" method="post" action="/login">
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input id="email" type="email" class="form-control" name="email" placeholder="johndoe@website.com" required>
-                </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input id="password" type="password" class="form-control" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" name="password" required> </div>
-              </form>
-            </div>
-            <div class="modal-footer c-bg-yellow">
-              <input type="submit" form="login" class="btn btn-custom" value="Log In">
+            <div class="col-6 p-3 c-border">
+              <img src="../static/imgs/logo_big.png" width="100%">
             </div>
           </div>
+          <div class="row d-flex align-items-center">
+            <div class="col-6 p-3 f-bilo">
+              Here at Post Wardrobe, we aim to help you get the most out of your favorite items of clothing. Have a bit-too-pricey prom dress you can’t completely let go of just yet? How about a bridesmaid’s dress that would break your best friends heart if you donated or sold forever? Make a “Vendor” account here on PW, upload some photos and a description of the item, and add your 2-week-rental price. It’s easy as pie!
+            </div>
+            <div class="col-6 p-3 f-bilo c-border">
+              If you are looking to rent out or buy one of these beautiful items for yourself, make a “Shopper” account, check off your style preferences and location settings, and voila! You have access to hundreds of styles while being eco-friendly and bargain savvy. Whether you’re selling, buying, or renting, the Post Wardrobe community is here so you make the most of the latest trends, the older classics, and the unique style of others.
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 p-3"></div>
+            <div class="col-6 p-3 f-bilo c-border">
+              <div class="float-right">
+                <a href="/browse" class="btn btn-custom c-font-pink mr-2">Browse</a>
+                <a href="/signup_page" class="btn btn-custom c-font-pink">Join today!</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="container-fluid c-bg-pink d-md-none d-block">
+          <div class="row py-3 px-4">
+            <div class="col">
+              <img src="../static/imgs/logo_big.png" width="100%;">
+            </div>
+          </div>
+          <div class="row py-3 px-5 f-bilo">
+            Here at Post Wardrobe, we aim to help you get the most out of your favorite items of clothing. Have a bit-too-pricey prom dress you can’t completely let go of just yet? How about a bridesmaid’s dress that would break your best friends heart if you donated or sold forever? Make a “Vendor” account here on PW, upload some photos and a description of the item, and add your 2-week-rental price. It’s easy as pie!
+          </div>
+          <div class="row py-3 px-5 f-bilo">
+            If you are looking to rent out or buy one of these beautiful items for yourself, make a “Shopper” account, check off your style preferences and location settings, and voila! You have access to hundreds of styles while being eco-friendly and bargain savvy. Whether you’re selling, buying, or renting, the Post Wardrobe community is here so you make the most of the latest trends, the older classics, and the unique style of others.
+          </div>
+          <div class="row py-3 px-4 f-bilo">
+            <a href="/browse" class="btn btn-custom c-font-pink ml-auto mr-2">Browse</a>
+            <a href="/signup_page" class="btn btn-custom c-font-pink">Join today!</a>
+          </div>
+          <!--
+          <div class="row">
+            <div class="col-sm-6 order-last order-sm-first f-bilo p-3 d-flex flex-column justify-content-center p-3">
+              Here at Post Wardrobe, we aim to help you get the most out of your favorite items of clothing. Have a bit-too-pricey prom dress you can’t completely let go of just yet? How about a bridesmaid’s dress that would break your best friends heart if you donated or sold forever? Make a “Vendor” account here on PW, upload some photos and a description of the item, and add your 2-week-rental price. It’s easy as pie!
+            </div>
+            <div class="col-sm-6 order-first order-sm-last c-border d-flex flex-column justify-content-between p-3">
+              <img src="../static/imgs/logo_big.png" width="100%">
+              <div class="f-bilo py-4">
+                If you are looking to rent out or buy one of these beautiful items for yourself, make a “Shopper” account, check off your style preferences and location settings, and voila! You have access to hundreds of styles while being eco-friendly and bargain savvy. Whether you’re selling, buying, or renting, the Post Wardrobe community is here so you make the most of the latest trends, the older classics, and the unique style of others.
+              </div>
+              <div>
+                <a class="btn c-font-pink btn-custom f-bilo float-right">Join today!</a>
+              </div>
+            </div>
+          </div>
+-->
         </div>
       </div>
     </div>
-    <div class=" mt-5 p-2" style="background-image: url(../static/imgs/stripes.png); background-size: 200px;">
-      <div class="container-fluid c-bg-pink">
-        <div class="row">
-          <div class="col-sm-6 order-last order-sm-first">
-            <div class="p-3">
-              Lorem ipsum,
-              <div class="pl-2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus faucibus, turpis et sodales elementum, ex eros pellentesque lacus, et venenatis neque neque ac orci. Suspendisse orci enim, viverra non tempor ac, cursus vel nisl. Aenean vel laoreet purus. Proin tempus volutpat fringilla. Quisque non lorem at ex euismod imperdiet ut eu ex. Mauris a mi pellentesque nisl suscipit porttitor. Vestibulum fringilla lacinia nibh nec sollicitudin. Vivamus sed nibh consequat, egestas urna id, vestibulum felis. Integer eu lacus ex.
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 order-first order-sm-last c-border">
-            <div class="container mt-2 mb-5">
-              <div class="row" style="height: 150px">
-                images
-              </div>
-              <div class="row">
-                <div class="container-fluid">
-                  <div class="row" style="text-decoration: underline">
-                    <div class="mx-auto">Lorem ipsum dolor sit</div>
-                  </div>
-                  <div class="row" style="text-decoration: underline">
-                    <div class="mx-auto">Lorem ipsum dolor sit</div>
-                  </div>
-                  <div class="row" style="text-decoration: underline">
-                    <div class="mx-auto">Lorem ipsum dolor sit</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> <!-- Optional JavaScript -->
+  </main>
+
+  {% include 'footer.html' %}
+
+  <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

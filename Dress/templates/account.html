@@ -14,26 +14,18 @@
 
   <link rel="icon" href="{{ url_for('static', filename='imgs/logo.png') }}">
 
-  <title>Post Wardrobe</title>
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/362c3782b4.js" crossorigin="anonymous"></script>
+
+  <title>Browse | Post Wardrobe</title>
 </head>
 
-<body class="c-bg-yellow h-100 d-flex flex-column">
-  <main class="flex-shrink-0" role="main">
-    <div class="container mt-2" style="max-width: 800px;">
-      {% include 'login.html' %}
-      <div class=" mt-5" style="background-image: url(../static/imgs/stripes.png); background-size: 200px;">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm my-2 ml-2 mr-1 c-bg-pink d-flex flex-column justify-content-center align-items-center" style="height: 300px;">
-              <a class="h2 m-0 text-center dark-link stretched-link f-bilo" href="/signup_page">I am looking to rent out an item</a>
-            </div>
-            <div class="col-sm my-2 mr-2 ml-1 c-bg-pink d-flex flex-column justify-content-center align-items-center" style="height: 300px;">
-              <a class="h2 m-0 text-center dark-link stretched-link f-bilo" href="/browse">I am looking to rent or buy an item</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<body class="c-bg-yellow d-flex flex-column h-100">
+  {% include 'header.html' %}
+
+  <!-- main content -->
+  <main role="main" class="flex-shrink-0" style="padding-top: 80px">
+
   </main>
 
   {% include 'footer.html' %}

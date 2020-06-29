@@ -1,11 +1,11 @@
-var item_no = 1
+var item_no = 0
 
 $(document).ready(function () {
   load_many();
 });
 
 var filter_change = function () {
-  item_no = 1;
+  item_no = 0;
   document.getElementById("items").innerHTML = "";
   load_many();
 };

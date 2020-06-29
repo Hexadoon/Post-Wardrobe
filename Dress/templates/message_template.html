@@ -1,0 +1,11 @@
+<div class="col c-bg-brown px-0 custom-overflow" id="msgs">
+  {% for message in messages %}
+  <div class="m-3 p-2 c-bg-light-blue">
+    <h5 class="m-0">
+      <span>{{ message[0] }}</span>
+      <span class="float-right text-muted">{{ message[3] }}</span>
+    </h5>
+    <p class="m-0">{{ message[2] }}</p>
+  </div>
+  {% endfor %}
+</div>

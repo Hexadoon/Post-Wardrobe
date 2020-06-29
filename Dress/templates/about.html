@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../static/css/common.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css')}}">
+
+  <link rel="icon" href="{{ url_for('static', filename='imgs/logo.png') }}">
+
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/362c3782b4.js" crossorigin="anonymous"></script>
+
+  <title>Browse | Post Wardrobe</title>
+</head>
+
+<body class="c-bg-yellow d-flex flex-column h-100">
+  {% include 'header.html' %}
+
+  <!-- main content -->
+  <main class="main fade-in" style="padding-top: 80px;">
+
+    <div class="container">
+      <div class="row f-bilo">
+        <div class="col">
+          <h2 class="text-center">What We Stand For</h2>
+        </div>
+      </div>
+      <div class="row pt-3 f-bilo">
+        <div class="col-sm text-center my-3 mx-5 mx-sm-0">
+          <img class="img-fluid" src="../static/imgs/about_3.png">
+          <h4>Sustainability</h4>
+        </div>
+        <div class="col-sm text-center my-3 mx-5 mx-sm-0">
+          <img class="img-fluid" src="../static/imgs/about_2.png">
+          <h4>Self-Expression</h4>
+        </div>
+        <div class="col-sm text-center my-3 mx-5 mx-sm-0">
+          <img class="img-fluid" src="../static/imgs/about_1.png">
+          <h4>Community</h4>
+        </div>
+      </div>
+      <hr class="my-5">
+      <div class="row f-bilo">
+        <div class="col">
+          <h2 class="text-center">The Post Wardrobe Team</h2>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-sm text-center my-3 d-flex flex-column">
+          <img class="img-fluid img-thumbnail" src="../static/imgs/lindsay.jpg">
+          <h4>Lindsay</h4>
+          <h6>Project Manager</h6>
+          <hr>
+          <p>Hi, I’m Lindsay Knight, the Project Manager of Post Wardrobe. I’m a rising senior majoring in Television and Video Production at Hofstra University, where I work on a number of different television shows ranging from entertainment to sports to news. Communications and teamwork are my jam, and in my spare time, I love reading, writing, baking, and playing video games.</p>
+          <div class="mt-auto" style="overflow-x: hidden; white-space: nowrap; text-overflow: ellipsis">
+            <hr>
+            <div class="d-flex justify-content-center">
+              <a class="fab fa-vimeo dark-link mx-3" href="https://vimeo.com/lindsaymknight" style="font-size: 40px;"></a>
+              <a class="fab fa-linkedin dark-link mx-3" href="https://www.linkedin.com/in/lindsaymknight/" style="font-size: 40px;"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm text-center my-3 d-flex flex-column">
+          <img class="img-fluid img-thumbnail" src="../static/imgs/sophia.jpg">
+          <h4>Sophia</h4>
+          <h6>Graphic Artist</h6>
+          <hr>
+          <p>Hello, I’m Sophia Ferrera, the UI and brand designer of Post Wardrobe. As a junior at New York University, I aim to graduate with a BS in Integrated Digital Media and pursue a career in interaction design, advertising, brand identity, or digital media.</p>
+          <p>I love dance and movement, film, cooking, and all things creative. I have an aversion to canned tuna fish, the texture of baby powder, and the patriarchy.</p>
+          <div class="mt-auto">
+            <hr>
+            <div class="d-flex justify-content-center">
+              <a class="fab fa-adobe dark-link mx-3" href="https://vimeo.com/lindsaymknight" style="font-size: 40px;"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm text-center my-3 d-flex flex-column">
+          <img class="img-fluid img-thumbnail" src="../static/imgs/joan.jpg">
+          <h4>Joan</h4>
+          <h6>Software Developer</h6>
+          <hr>
+          <p>Some description</p>
+          <div class="mt-auto">
+            <hr>
+            <div class="d-flex justify-content-center">
+              <a class="fab fa-github dark-link mx-3" href="https://github.com/JoanChirinos" style="font-size: 40px;"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  {% include 'footer.html' %}
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body></html>
