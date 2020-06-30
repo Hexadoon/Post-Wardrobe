@@ -7,7 +7,7 @@ import os
 import uuid
 from flask import (Flask, render_template, request, session, flash, redirect,
                    url_for)
-
+import dateutil.parser
 from werkzeug.utils import secure_filename
 
 from util import db
@@ -153,7 +153,7 @@ def messages():
     d = {}
     for peep in peeps:
         name = peep[0]
-        timestamp = dt.datetime.fromisoformat(peep[1])
+        timestamp = dateutil.parser.parse(peep[1])
         if name in d:
             if timestamp > d[name]:
                 d[name] = timestamp
@@ -178,7 +178,7 @@ def get_messages():
     set1, set2 = db.get_messages(sender, recipient)
     messages = list(map(list, set1 + set2))
     # print(messages)
-    messages = list(map(lambda x: x[:3] + [dt.datetime.fromisoformat(x[3])],
+    messages = list(map(lambda x: x[:3] + [dateutil.parser.parse(x[3])],
                         messages))
     messages = sorted(messages, key=lambda x: x[3])
     messages = list(map(lambda x: x[:3] + [x[3].strftime('%d %b %Y, %I:%M %p')],
