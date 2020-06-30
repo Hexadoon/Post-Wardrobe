@@ -13,7 +13,8 @@ from werkzeug.utils import secure_filename
 from util import db
 
 
-UPLOAD_FOLDER = '/Users/joanchirinos/Desktop/Desktop/CS/dress/Dress/static/dresses'
+# UPLOAD_FOLDER = '/Users/joanchirinos/Desktop/Desktop/CS/dress/Dress/static/dresses'
+UPLOAD_FOLDER = '/var/www/Dress/Dress/static/dresses'
 ALLOWED_EXTENSIONS = {'jp2', 'j2k', 'jpf', 'jpx', 'jpm', 'mj2', 'heif', 'heic',
                       'bmp', 'dib', 'webp', 'gif', 'png', 'jpg', 'jpeg', 'jpe',
                       'jif', 'jfif', 'jfi'}
