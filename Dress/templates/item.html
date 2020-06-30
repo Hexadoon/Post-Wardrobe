@@ -32,13 +32,11 @@
           <div id="imageCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#imageCarousel" data-slide-to="1"></li>
-              <li data-target="#imageCarousel" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
               {% for img in imgs %}
               <div class="carousel-item active">
-                <img src="{{ img }}" class="d-block w-100" alt="Picture of a dress">
+                <img src="{{url_for('static', filename='dresses/' + img)}}" class="d-block w-100" alt="Picture of a dress">
               </div>
               {% endfor %}
             </div>
@@ -61,13 +59,13 @@
               <h2 class="h2 f-bilo">{{ name }}</h2>
             </div>
             <div class="row my-2">
-              <a href="/users/{{user_id}}" class="dark-link">
-                <i class="fas fa-user" style="font-size: 20px"></i>
+              <a href="/message/{{seller_name}}" class="dark-link">
+                <i class="far fa-envelope" style="font-size: 20px"></i>
                 <div class="d-inline-block f-bilo" style="font-size: 20px">{{ seller_name }}</div>
               </a>
             </div>
             <div class="row f-avenir">
-              {{ seller_description }}
+              {{ description }}
             </div>
           </div>
         </div>

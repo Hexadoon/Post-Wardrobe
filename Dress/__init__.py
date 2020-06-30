@@ -3,14 +3,32 @@ Main file for Dress Rental Flask app
 '''
 
 import datetime as dt
+import os
+import uuid
 from flask import (Flask, render_template, request, session, flash, redirect,
                    url_for)
+
+from werkzeug.utils import secure_filename
 
 from util import db
 
 
+UPLOAD_FOLDER = '/Users/joanchirinos/Desktop/Desktop/CS/dress/Dress/static/dresses'
+ALLOWED_EXTENSIONS = {'jp2', 'j2k', 'jpf', 'jpx', 'jpm', 'mj2', 'heif', 'heic',
+                      'bmp', 'dib', 'webp', 'gif', 'png', 'jpg', 'jpeg', 'jpe',
+                      'jif', 'jfif', 'jfi'}
+
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 25 * 1024 * 1024
 app.secret_key = "beansbeansbeans"
+
+
+# Util
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+# End Util
 
 
 @app.route('/')
@@ -112,7 +130,7 @@ def get_item():
     d['item_id'] = 'item_' + str(item_no)
     d['name'] = item[2]
     d['suggested_price'] = item[3]
-    d['img_src'] = item[1]
+    d['img_src'] = url_for('static', filename='dresses/' + item[1])
     d['price'] = item[3]
     print(render_template('browse_item.html', **d))
     return render_template('browse_item.html', **d)
@@ -184,6 +202,19 @@ def send_message():
     return "Done"
 
 
+@app.route('/profile')
+def profile():
+    if 'username' not in session:
+        flash('Log in to access your profile', 'pink')
+        return redirect(url_for('browse'))
+
+    d = {}
+    d['username'] = session['username']
+    d['items'] = db.get_seller_items(d['username'])
+
+    return render_template('profile.html', **d)
+
+
 @app.route('/item/<item_id>')
 def item(item_id):
     '''
@@ -200,6 +231,43 @@ def item(item_id):
     d['price'] = item[3]
 
     return render_template('item.html', **d)
+
+
+@app.route('/add_item', methods=["POST"])
+def add_item():
+
+    file = request.files['src']
+    if allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+    d = {}
+    d['name'] = request.form['name']
+    d['src'] = secure_filename(filename)
+    d['price'] = request.form['price']
+    d['size'] = request.form['size']
+    d['material'] = request.form['material']
+    d['color'] = request.form['color']
+    d['occassion'] = request.form['occassion']
+    d['weather'] = request.form['weather']
+    d['condition'] = request.form['condition']
+    d['seller'] = session['username']
+    d['description'] = request.form['description']
+
+    print(d)
+    print(request.files)
+
+    db.add_item(**d)
+
+    return 'Done'
+
+    # db.add_item(**d)
+
+
+@app.route('/change_available_status/<item_id>')
+def change_available_status(item_id):
+    db.change_available_status(item_id)
+    return 'Done'
 
 
 @app.route('/redir_main')

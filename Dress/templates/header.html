@@ -4,6 +4,7 @@
       <img src="../static/imgs/logo_small.png" width="70px">
     </a>
     {% if session['username'] %}
+    <a class="fas fa-user dark-link mx-3" href="/profile" style="font-size: 40px;"></a>
     <a class="far fa-envelope dark-link mx-3" href="/messages" style="font-size: 40px;"></a>
     <a class="fas fa-sign-out-alt dark-link mx-3" style="font-size: 40px;" href="/logout"></a>
     {% else %}

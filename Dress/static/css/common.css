@@ -27,6 +27,10 @@ button {
   font-family: 'Bilo', sans-serif;
 }
 
+.darken {
+  filter: brightness(50%);
+}
+
 body {
   font-family: 'Avenir', sans-serif
 }

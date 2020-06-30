@@ -21,7 +21,15 @@ var get_item = function (count) {
         get_item(count);
       } else if (r == "No more") {
         var btn = document.getElementById("load_more");
-        btn.parentNode.removeChild(btn);
+        var parent = btn.parentNode
+        parent.removeChild(btn);
+        var el = document.createElement('div');
+        el.classList.add("alert");
+        el.classList.add("alert-pink");
+        el.classList.add("w-100");
+        el.classList.add("text-center");
+        el.innerHTML = "No more dresses that fit these filters. You could add your own!"
+        parent.appendChild(el);
         return;
       } else {
         var dp = new DOMParser();

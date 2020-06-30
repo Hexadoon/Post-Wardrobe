@@ -7,8 +7,8 @@ import sqlite3
 import datetime
 import time
 
-DB_FILE = '/var/www/Dress/Dress/data/dress.db'
-# DB_FILE = 'data/dress.db'
+# DB_FILE = '/var/www/Dress/Dress/data/dress.db'
+DB_FILE = 'data/dress.db'
 
 
 # TODO: Make the img_src a directory so you can store multiple images
@@ -46,19 +46,40 @@ def get_item_count():
     c.execute('SELECT value FROM misc WHERE key = ?', ('item_count',))
     item_count = c.fetchone()[0]
 
+    db.close()
+
     return item_count
 
 
-def add_item(name, src, price, tags):
-    # Tags: (size, material, color, occassion, weather, condition)
+def get_seller_items(seller):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute('SELECT * FROM items WHERE seller = ?', (seller,))
+    items = c.fetchall()
+
+    db.close()
+
+    return items
+
+
+def add_item(src, name, price, size, material, color, occassion,
+             weather, condition, seller, description):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
     item_count = get_item_count()
     item_id = 'item_' + item_count
 
-    c.execute('INSERT INTO items VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-              (item_id, src, name, price, 1) + tags)
+    c.execute('INSERT INTO items VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+              (item_id, src, name, price, 1, size, material, color, occassion,
+               weather, condition, seller, description))
+
+    db.commit()
+    db.close()
+
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
 
     c.execute('UPDATE misc SET value = ? WHERE KEY = ?',
               (str(int(item_count) + 1), 'item_count'))
@@ -67,6 +88,33 @@ def add_item(name, src, price, tags):
     db.close()
 
     return item_id
+
+
+def is_available(item_id):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute('SELECT available FROM items WHERE item_id = ?', (item_id,))
+
+    status = c.fetchone()
+
+    if status is None:
+        return False
+
+    return status[0] == 1
+
+
+def change_available_status(item_id):
+    set_status = 0 if is_available(item_id) else 1
+
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute('UPDATE items SET available = ? WHERE item_id = ?',
+              (set_status, item_id))
+
+    db.commit()
+    db.close()
 
 
 def get_item(item_no, tags=None):
@@ -99,6 +147,8 @@ def get_item(item_no, tags=None):
 
     item = c.fetchone()
 
+    db.close()
+
     return item
 
 
@@ -109,6 +159,8 @@ def get_item_info(item_id):
     c.execute('SELECT * FROM items WHERE item_id = ?', (item_id,))
 
     item = c.fetchone()
+
+    db.close()
 
     return item
 
@@ -127,6 +179,8 @@ def login_attempt(username, password):
     if p is None:
         return False
 
+    db.close()
+
     return password == p[0]
 
 
@@ -142,6 +196,8 @@ def user_exists(username, email):
 
     c.execute('SELECT 1 FROM users WHERE email = ?', (email,))
     check2 = c.fetchone()
+
+    db.close()
 
     return check1 is not None and check2 is not None
 
@@ -192,6 +248,8 @@ def get_messages(sender, recipient):
               (recipient, sender))
     set2 = c.fetchall()
 
+    db.close()
+
     print(sorted(set1 + set2, key=lambda x: x[3]))
     return set1, set2
 
@@ -200,13 +258,17 @@ def get_recipient_list(sender):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
-    c.execute('SELECT msg_to, timestamp FROM messages WHERE msg_from = ?', (sender,))
+    c.execute('SELECT msg_to, timestamp FROM messages WHERE msg_from = ?',
+              (sender,))
     set1 = c.fetchall()
 
-    c.execute('SELECT msg_from, timestamp FROM messages WHERE msg_to = ?', (sender,))
+    c.execute('SELECT msg_from, timestamp FROM messages WHERE msg_to = ?',
+              (sender,))
     set2 = c.fetchall()
 
     combolist = set1 + set2
+
+    db.close()
 
     return combolist
 
@@ -224,6 +286,8 @@ def get_user_id(username=None, email=None):
     elif email is not None:
         c.execute('SELECT user_id FROM users WHERE email = ?', (email,))
         username = c.fetchone()
+
+    db.close()
 
     if user_id is not None:
         user_id = user_id[0]
@@ -243,6 +307,8 @@ def get_username(user_id=None, email=None):
     elif email is not None:
         c.execute('SELECT username FROM users WHERE email = ?', (email,))
         username = c.fetchone()
+
+    db.close()
 
     if username is not None:
         username = username[0]

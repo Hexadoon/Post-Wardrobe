@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../static/css/common.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css')}}">
+
+  <link rel="icon" href="{{ url_for('static', filename='imgs/logo.png') }}">
+
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/362c3782b4.js" crossorigin="anonymous"></script>
+
+  <title>Browse | Post Wardrobe</title>
+</head>
+
+<body class="c-bg-yellow d-flex flex-column h-100">
+  {% include 'header.html' %}
+
+
+
+  <!-- main content -->
+  <main role="main" class="flex-shrink-0" style="padding-top: 80px">
+    <div class="container">
+      <h2>Hi {{ session['username'] }}!</h2>
+      <hr>
+      <div class="container-fluid">
+
+
+
+        <div class="row">
+          <div class="col mb-3">
+            <h4>Add a New Dress</h4>
+
+
+            <div class="accordion" id="new_item_accordion">
+              <div class="card">
+                <div class="card-header" id="new_item_heading">
+                  <h5 class="mb-0 text-center">
+                    <button class="btn btn-block fas fa-chevron-down" role="button" data-toggle="collapse" data-target="#new_item_collapse" aria-expanded="true" aria-controls="collapseOne" onclick="change_chevron();" id="chevron_parent">
+                    </button>
+                  </h5>
+                </div>
+
+                <div id="new_item_collapse" class="collapse" aria-labelledby="new_item_heading" data-parent="#new_item_accordion">
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label for="item_name">Name</label>
+                      <input type="text" class="form-control" name="item_name" id="item_name" placeholder="Red Summer Dress">
+                    </div>
+                    <div class="form-group">
+                      <label for="item_img">Image</label>
+                      <div class="input-group">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="item_img" name="item_img" accept="image/*" oninput="update_file();">
+                          <label class="custom-file-label" for="item_img" id="img_label">Choose a file</label>
+                        </div>
+                      </div>
+                      <small class="text-muted">Max file size: 25 MB</small>
+                    </div>
+                    <div class="form-group">
+                      <label for="item_description">Description</label>
+                      <textarea class="form-control" id="item_description" name="item_description" placeholder="This is a red dress meant to be worn in the summer. It has a seamless floral pattern and a v-neck. Slightly frilly at the bottom. Worn once." rows="5"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="item_price">Suggested Price</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="dollar_addon">$</span>
+                        </div>
+                        <input type="number" class="form-control" name="item_price" id="item_price" placeholder="XX.XX" aria-describedby="dollar_addon">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="item_size">Size</label>
+                      <select class="form-control" id="item_size" name="item_size">
+                        <option>XS</option>
+                        <option>S</option>
+                        <option selected>M</option>
+                        <option>L</option>
+                        <option>XL</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="item_material">Material</label>
+                      <select class="form-control" id="item_material" name="item_material">
+                        <option>Cotton</option>
+                        <option>Leather</option>
+                        <option>Nylon</option>
+                        <option>Polyester</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="item_color">Color</label>
+                      <select class="form-control" id="item_color" name="item_color">
+                        <option>Black</option>
+                        <option>White</option>
+                        <option>Red</option>
+                        <option>Orange</option>
+                        <option>Yellow</option>
+                        <option>Green</option>
+                        <option>Blue</option>
+                        <option>Purple</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="item_occassion">Occassion</label>
+                      <select class="form-control" id="item_occassion" name="item_occassion">
+                        <option>Prom</option>
+                        <option>Wedding</option>
+                        <option>Work</option>
+                        <option>Night</option>
+                        <option>Formal</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="item_weather">Weather</label>
+                      <select class="form-control" id="item_weather" name="item_weather">
+                        <option>Year-round</option>
+                        <option>Warm</option>
+                        <option>Cold</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="item_condition">Condition</label>
+                      <select class="form-control" id="item_condition" name="item_condition">
+                        <option>Like New</option>
+                        <option>Good</option>
+                        <option>Fair</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <button type="button" class="btn btn-custom btn-block" onclick="add_dress();">Add New Dress</button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h4>Your Dresses</h4>
+          </div>
+        </div>
+        <div class="row">
+          {% if items|length == 0 %}
+          <div class="alert alert-secondary mx-auto mt-3">You don't have any postings! Add a dress above!</div>
+          {% else %}
+          {% for item in items %}
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card zoom mx-5 mx-md-0" id="{{ item[0] }}_card">
+              <img class="card-img-top" src="{{url_for('static', filename='dresses/' + item[1])}}" alt="dress" style="height: 300px; object-fit: cover">
+              <div class="card-body">
+                <a class="h5 card-title stretched-link black-link" href="/item/{{ item[0] }}">
+                  <span class="float-left w-100 f-bilo" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis">{{ item[2] }}</span>
+                  <br>
+                  <span class="float-right f-avenir">${{ item[3] }}</span></a>
+              </div>
+            </div>
+            <div class="text-center">
+              {% if item[4] == 1 %}
+              <button class="btn btn-block btn-custom mt-2">Mark as sold/rented</button>
+              {% else %}
+              <button class="btn btn-block btn-custom mt-2">Mark as available</button>
+              {% endif %}
+            </div>
+            <hr>
+          </div>
+          {% endfor %}
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </main> {% include 'footer.html' %}
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script src="../static/js/profile.js"></script>
+</body></html>
