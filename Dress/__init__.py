@@ -106,6 +106,7 @@ def get_item():
     tags['occassion'] = request.form['occassion']
     tags['weather'] = request.form['weather']
     tags['condition'] = request.form['condition']
+    tags['available'] = 1
 
     new_tags = dict(tags)
 

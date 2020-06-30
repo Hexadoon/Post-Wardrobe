@@ -163,7 +163,7 @@
           {% else %}
           {% for item in items %}
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card zoom mx-5 mx-md-0" id="{{ item[0] }}_card">
+            <div class="card zoom mx-5 mx-md-0 {% if item[4] == 0 %} darken {% endif %}" id="{{ item[0] }}_card">
               <img class="card-img-top" src="{{url_for('static', filename='dresses/' + item[1])}}" alt="dress" style="height: 300px; object-fit: cover">
               <div class="card-body">
                 <a class="h5 card-title stretched-link black-link" href="/item/{{ item[0] }}">
@@ -174,9 +174,9 @@
             </div>
             <div class="text-center">
               {% if item[4] == 1 %}
-              <button class="btn btn-block btn-custom mt-2">Mark as sold/rented</button>
+              <button class="btn btn-block btn-custom mt-2" onclick="change_available_status('{{ item[0] }}')" id="{{ item[0] }}_button">Mark as sold/rented</button>
               {% else %}
-              <button class="btn btn-block btn-custom mt-2">Mark as available</button>
+              <button class="btn btn-block btn-custom mt-2" onclick="change_available_status('{{ item[0] }}')" id="{{ item[0] }}_button">Mark as available</button>
               {% endif %}
             </div>
             <hr>

@@ -6,8 +6,10 @@ var change_available_status = function (item_id) {
     if (this.readyState == 4 && this.status == 200) {
       if ($("#" + item_id + "_card").hasClass("darken")) {
         $("#" + item_id + "_card").removeClass("darken");
+        $("#" + item_id + "_button").html("Mark as sold/rented");
       } else {
         $("#" + item_id + "_card").addClass("darken");
+        $("#" + item_id + "_button").html("Mark as available");
       }
     }
   }
